@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../../api/client";
 import { SortControl } from "../Controls/SortControl";
+import { TagSearch } from "../TagFilter/TagSearch";
 
 function useDarkMode() {
   const [dark, setDark] = useState(() => {
@@ -42,6 +43,8 @@ export function Header() {
             &#127916; Media Viewer
           </span>
         </div>
+
+        <TagSearch />
 
         {/* Controls */}
         <div className="flex items-center gap-2">
