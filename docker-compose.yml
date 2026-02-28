@@ -1,0 +1,17 @@
+services:
+  media-viewer:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - /path/to/your/videos:/videos:ro
+      - media-viewer-data:/data
+    environment:
+      - VIDEO_DIR=/videos
+      - DATABASE_URL=sqlite:////data/media.db
+      - SCAN_ON_STARTUP=true
+      - PAGE_SIZE=24
+    restart: unless-stopped
+
+volumes:
+  media-viewer-data:
