@@ -1,6 +1,6 @@
 services:
   media-viewer:
-    build: .
+    image: teeebs/media-viewer:latest
     ports:
       - "8000:8000"
     volumes:

@@ -82,42 +82,9 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
 
         {/* Details */}
         <div className="p-5 flex flex-col gap-4">
-          <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-              {video.title ?? "Untitled"}
-            </h2>
-            {video.uploader && (
-              <a
-                href={video.uploader_url ?? "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-blue-500 hover:underline"
-              >
-                {video.uploader}
-              </a>
-            )}
-          </div>
-
-          {/* Stats */}
-          {(video.like_count != null || video.repost_count != null) && (
-            <div className="flex gap-4 text-sm text-gray-600 dark:text-gray-400">
-              {video.like_count != null && <span>&#10084; {video.like_count.toLocaleString()} likes</span>}
-              {video.repost_count != null && <span>&#8635; {video.repost_count.toLocaleString()} reposts</span>}
-              {video.comment_count != null && <span>&#128172; {video.comment_count.toLocaleString()} comments</span>}
-            </div>
-          )}
-
-          {/* Description */}
-          {video.webpage_url && (
-            <a
-              href={video.webpage_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-gray-400 hover:text-blue-500 truncate"
-            >
-              View original source &#8599;
-            </a>
-          )}
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+            {video.title ?? "Untitled"}
+          </h2>
 
           {/* Tags */}
           <div>
@@ -148,6 +115,17 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
             </div>
             <TagEditor videoId={video.id} onAdd={handleAddTag} />
           </div>
+
+          {video.webpage_url && (
+            <a
+              href={video.webpage_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-gray-400 hover:text-blue-500 truncate"
+            >
+              View original source &#8599;
+            </a>
+          )}
         </div>
       </div>
     </div>
