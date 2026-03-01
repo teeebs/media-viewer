@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: short-sha
+        uses: benjlevesque/short-sha@v3.0
+        
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -41,7 +44,7 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/media-viewer:latest
-            ${{ secrets.DOCKER_USERNAME }}/media-viewer:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/media-viewer:${{ env.SHA }}
           platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
