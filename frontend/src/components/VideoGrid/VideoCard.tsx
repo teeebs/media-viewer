@@ -75,36 +75,6 @@ export function VideoCard({ video, onClick }: VideoCardProps) {
           {video.title ?? "Untitled"}
         </p>
 
-        {/* Uploader */}
-        {video.uploader && (
-          <a
-            href={video.uploader_url ?? "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-blue-500 hover:underline truncate"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {video.uploader}
-          </a>
-        )}
-
-        {/* Engagement stats */}
-        {(video.like_count != null ||
-          video.repost_count != null ||
-          video.comment_count != null) && (
-          <div className="flex gap-3 text-xs text-gray-500 dark:text-gray-400">
-            {video.like_count != null && (
-              <span title="Likes">&#10084; {formatCount(video.like_count)}</span>
-            )}
-            {video.repost_count != null && (
-              <span title="Reposts">&#8635; {formatCount(video.repost_count)}</span>
-            )}
-            {video.comment_count != null && (
-              <span title="Comments">&#128172; {formatCount(video.comment_count)}</span>
-            )}
-          </div>
-        )}
-
         {/* Tags */}
         {video.tags.length > 0 && (
           <div className="flex flex-wrap gap-1">
